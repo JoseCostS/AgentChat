@@ -1,0 +1,35 @@
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: -240px;
+  width: 220px;
+  height: 100%;
+  background-color: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(6px);
+  color: white;
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.menu-lateral.aberto {
+  left: 0;
+}
+
+.menu-lateral ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-lateral li {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.menu-lateral li:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}

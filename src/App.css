@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 2px solid #ccc;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.menu-icon {
+  font-size: 26px;
+  cursor: pointer;
+  color: #333;
+}
+
+.user-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-icon {
+  font-size: 28px;
+  color: #222;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* GRADE DE BOTÕES */
+.grid {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.grid-inner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px 80px;
+}
+
+/* CARDS */
+.card {
+  width: 150px;
+  height: 150px;
+  background-color: #000;
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 123, 255, 0.25);
+}
+
+.card-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.card-label {
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+}
