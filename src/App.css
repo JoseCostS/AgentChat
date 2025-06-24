@@ -1,45 +1,35 @@
+/* Estrutura principal */
 .container {
   display: flex;
   flex-direction: column;
   height: 100%;
+  background: linear-gradient(to bottom, #f5f7fa, #e2eafc);
 }
 
-/* HEADER */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 24px;
-  border-bottom: 2px solid #ccc;
-  background-color: #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
+/* Header */
 .menu-icon {
-  font-size: 26px;
+  font-size: 24px;
   cursor: pointer;
-  color: #333;
 }
 
 .user-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  font-weight: bold;
 }
 
 .user-icon {
   font-size: 28px;
-  color: #222;
+  color: #0077ff;
 }
 
 .user-name {
-  font-weight: 600;
-  color: #1a1a1a;
-  text-decoration: none;
+  font-weight: bold;
+  color: #0077ff;
+  text-decoration: underline;
   font-size: 14px;
+  cursor: pointer;
 }
 
-/* GRADE DE BOTÕES */
+/* Grid principal */
 .grid {
   flex: 1;
   display: flex;
@@ -51,38 +41,53 @@
 .grid-inner {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 60px 80px;
+  gap: 50px 70px;
 }
 
-/* CARDS */
+/* Cartões (cards) redondos */
 .card {
-  width: 150px;
-  height: 150px;
-  background-color: #000;
-  border-radius: 20px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 1px solid black;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 123, 255, 0.25);
+  transform: scale(1.06);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
 }
 
 .card-icon {
   font-size: 40px;
-  margin-bottom: 12px;
-  color: #ffffff;
+  margin-bottom: 10px;
 }
 
 .card-label {
-  font-weight: 600;
+  font-weight: bold;
   font-size: 16px;
-  text-align: center;
+}
+
+/* Cores diferentes para cada card */
+.card:nth-child(1) {
+  background-color: #ffc107; /* amarelo - Favoritos */
+}
+
+.card:nth-child(2) {
+  background-color: #28a745; /* verde - Agendar */
+}
+
+.card:nth-child(3) {
+  background-color: #17a2b8; /* azul claro - Empresas */
+}
+
+.card:nth-child(4) {
+  background-color: #e83e8c; /* rosa - Minha Agenda */
 }

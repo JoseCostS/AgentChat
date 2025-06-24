@@ -1,3 +1,5 @@
+// src/components/MenuLateral.jsx
+
 import './MenuLateral.css';
 
 function MenuLateral({ aberto, fechar }) {
