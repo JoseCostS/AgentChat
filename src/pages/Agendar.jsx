@@ -1,14 +1,12 @@
-// src/pages/Agendar.jsx
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './Agendar.css';
-
-import Header from '../components/Header'; // ⬅️ Adiciona header
-import { useState } from 'react';
-import MenuLateral from '../components/MenuLateral'; // ⬅️ Adiciona menu lateral
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import Header from '../components/Header';
+import MenuLateral from '../components/MenuLateral';
 
 const empresas = [
   { nome: 'Academia', cor: '#4CAF50' },
@@ -20,16 +18,17 @@ const empresas = [
 ];
 
 const Agendar = () => {
+  const navigate = useNavigate();
+  const { usuario } = useAuth();
   const [menuAberto, setMenuAberto] = useState(false);
 
   return (
-    <div className="agendar-wrapper">
-      <Header setMenuAberto={() => setMenuAberto(!menuAberto)} />
+    <div className="container">
+      <Header setMenuAberto={() => setMenuAberto(!menuAberto)} usuario={usuario} />
       <MenuLateral aberto={menuAberto} fechar={() => setMenuAberto(false)} />
 
-      <div className="conteudo-agendar">
-        <h2 className="titulo-agendar">Escolha uma empresa para agendar</h2>
-
+      <div className="agendar-wrapper">
+        <h2 className="titulo-agendar">Escolha uma empresa</h2>
         <div className="empresa-box">
           <Swiper
             spaceBetween={20}
@@ -39,7 +38,11 @@ const Agendar = () => {
           >
             {empresas.map((empresa, i) => (
               <SwiperSlide key={i}>
-                <div className="empresa-card" style={{ borderColor: empresa.cor }}>
+                <div
+                  className="empresa-card"
+                  style={{ borderColor: empresa.cor }}
+                  onClick={() => navigate(`/empresa/${i}`)}
+                >
                   <div
                     className="empresa-icon"
                     style={{ backgroundColor: empresa.cor }}

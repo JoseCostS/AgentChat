@@ -1,0 +1,199 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+
+.empresa-detalhe-container {
+  padding-top: 70px; 
+  background: #f5f7fa;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.agendamento-box {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.empresa-info {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.empresa-icon-grande {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  border: 3px solid #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  animation: pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.03); }
+}
+
+.empresa-nome {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.servico-section,
+.calendario-section {
+  margin-bottom: 1.2rem;
+}
+
+.servico-section h3,
+.horarios-section h3,
+.calendario-section h3 {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.6rem;
+  display: block; 
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fdfdfd;
+  font-size: 1rem;
+  outline: none;
+}
+
+.horarios-calendario-wrapper {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.horarios-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.horarios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.horario-btn {
+  padding: 10px 14px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.horario-btn:hover {
+  background-color: #d0d0d0;
+  transform: translateY(-2px);
+}
+
+.horario-btn.ativo {
+  background-color: #0077ff;
+  color: white;
+  font-weight: bold;
+}
+
+.calendario-section {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-agendar {
+  width: 100%;
+  background-color: #0077ff;
+  color: white;
+  font-size: 1rem;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-agendar:hover {
+  background-color: #005fcc;
+  transform: scale(1.02);
+}
+
+
+@media (max-width: 768px) {
+  .horarios-calendario-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .agendamento-box {
+    padding: 1.5rem 1rem;
+  }
+
+  .empresa-icon-grande {
+    width: 90px;
+    height: 90px;
+  }
+
+  .empresa-nome {
+    font-size: 1.3rem;
+  }
+
+  .horarios-grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .calendario-section {
+    flex: 1;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

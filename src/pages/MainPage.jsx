@@ -1,15 +1,11 @@
-// src/pages/MainPage.jsx
-
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-
 import { FaStar, FaBuilding } from 'react-icons/fa';
 import { MdCalendarMonth, MdEventAvailable } from 'react-icons/md';
-
-import Header from '../components/Header';
+import { useState } from 'react';
 import MenuLateral from '../components/MenuLateral';
-
+import Header from '../components/Header';
 import '../App.css';
+import { useAuth } from '../context/AuthContext';
 
 const Card = ({ icon: Icon, label, onClick }) => (
   <div className="card" onClick={onClick}>
@@ -21,10 +17,12 @@ const Card = ({ icon: Icon, label, onClick }) => (
 function MainPage() {
   const navigate = useNavigate();
   const [menuAberto, setMenuAberto] = useState(false);
+  const { usuario } = useAuth();
 
   return (
     <div className="container">
-      <Header setMenuAberto={() => setMenuAberto(!menuAberto)} />
+      <Header setMenuAberto={() => setMenuAberto(!menuAberto)} usuario={usuario} />
+
       <MenuLateral aberto={menuAberto} fechar={() => setMenuAberto(false)} />
 
       <main className="grid">

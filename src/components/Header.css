@@ -1,20 +1,10 @@
-.header-container {
-  width: 100%;
-  padding: 10px 20px;
-  background-color: white;
-  border-bottom: 2px solid black;
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.menu-icon {
-  font-size: 24px;
-  cursor: pointer;
+  padding: 16px 24px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .user-info {
@@ -23,12 +13,14 @@
   gap: 8px;
 }
 
+.menu-icon,
 .user-icon {
-  font-size: 22px;
-  color: #007bff;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .user-name {
-  font-weight: bold;
-  color: #007bff;
+  font-weight: 600;
+  font-size: 14px;
+  color: #0077ff;
 }
