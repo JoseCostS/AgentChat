@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Header from '../components/Header';
@@ -39,7 +39,6 @@ const horariosDisponiveis = [
   '14:00', '14:30', '15:00', '15:30', '16:00'
 ];
 
-
 const normalizar = (str) =>
   str
     .normalize('NFD')
@@ -49,33 +48,26 @@ const normalizar = (str) =>
 
 const EmpresaDetalhe = () => {
   const { id } = useParams();
+  const navigate = useNavigate(); 
   const [menuAberto, setMenuAberto] = useState(false);
   const [dataSelecionada, setDataSelecionada] = useState(new Date());
   const [horarioSelecionado, setHorarioSelecionado] = useState('');
   const [servicoSelecionado, setServicoSelecionado] = useState('');
   const { usuario } = useAuth();
 
+  const listaEmpresas = [
+    'Academia',
+    'Barbearia',
+    'Lava Rápido',
+    'Pet Shop',
+    'Estética',
+    'Clínica'
+  ];
 
-const listaEmpresas = [
-  "Academia",
-  "Barbearia",
-  "Lava Rápido",
-  "Pet Shop",
-  "Estética",
-  "Clínica"
-];
-
-
-const nomeFormatado = listaEmpresas[parseInt(id)];
-
-
+  const nomeFormatado = listaEmpresas[parseInt(id)];
   const empresa = nomeFormatado
     ? dadosEmpresas[nomeFormatado]
     : { cor: '#ccc', servicos: [] };
-
-  console.log('ID da URL:', id);
-  console.log('Empresa encontrada:', nomeFormatado);
-  console.log('Serviços disponíveis:', empresa.servicos);
 
   return (
     <div className="empresa-detalhe-container">
@@ -112,7 +104,6 @@ const nomeFormatado = listaEmpresas[parseInt(id)];
 
         {/* Seção de Horários e Calendário */}
         <div className="horarios-calendario-wrapper">
-          {/* Horários disponíveis */}
           <div className="horarios-section">
             <h3>Horário Disponível</h3>
             <div className="horarios-grid">
@@ -128,7 +119,6 @@ const nomeFormatado = listaEmpresas[parseInt(id)];
             </div>
           </div>
 
-          {/* Calendário */}
           <div className="calendario-section">
             <h3>Selecione a data</h3>
             <DatePicker
@@ -140,7 +130,26 @@ const nomeFormatado = listaEmpresas[parseInt(id)];
         </div>
 
         {/* Botão de Agendamento */}
-        <button className="btn-agendar">
+        <button
+          className="btn-agendar"
+          onClick={() => {
+            if (!servicoSelecionado || !horarioSelecionado || !dataSelecionada) {
+              alert('Por favor, selecione o serviço, a data e o horário.');
+              return;
+            }
+
+            const dataFormatada = dataSelecionada.toLocaleDateString('pt-BR');
+
+            alert(`✅ Agendamento confirmado:
+
+Empresa: ${nomeFormatado}
+Serviço: ${servicoSelecionado}
+Data: ${dataFormatada}
+Horário: ${horarioSelecionado}`);
+
+            navigate('/'); 
+          }}
+        >
           Agendar
         </button>
       </div>
