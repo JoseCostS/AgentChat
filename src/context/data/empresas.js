@@ -67,11 +67,12 @@ export default function Agendar() {
         {/* GRID PRINCIPAL: banner + painel */}
         <div className="ag-main">
           {/* Banner / mídia */}
-<div className="ag-banner">
-  <img src={empresa.banner} alt={`Banner de ${empresa.nome}`} />
-</div>
-
-
+            <div
+              className="ag-banner"
+               role="img"
+                aria-label={`Banner de ${empresa.nome}`}
+                style={{ backgroundImage: `url(${empresa.banner})` }}
+        />
 
 
           {/* Painel de informações */}

@@ -1,0 +1,27 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: #0b0b0b;                /* barra preta */
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.2);
+}
+
+.topbar__brand { display: flex; align-items: center; gap: 24px; }
+.topbar__logo { color: #fff; font-weight: 800; text-decoration: none; letter-spacing: .5px; }
+
+.topbar__nav { display: flex; align-items: center; gap: 8px; }
+.topbar__link { color: #e5e7eb; text-decoration: none; font-weight: 600; padding: 6px 8px; border-radius: 6px; }
+.topbar__link.active { background: rgba(124,58,237,.15); }
+.topbar__sep { color: #9ca3af; }
+
+.topbar__actions { display: flex; align-items: center; gap: 12px; }
+.icon-btn { background: transparent; border: 0; color: #fff; font-size: 20px; padding: 6px; border-radius: 8px; cursor: pointer; }
+.icon-btn:hover { background: rgba(255,255,255,.1); }
+
+.topbar__user { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; color: #60a5fa; }
+.user-icon { font-size: 22px; }

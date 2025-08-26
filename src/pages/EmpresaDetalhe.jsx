@@ -1,79 +1,26 @@
-import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import Header from '../components/Header';
-import MenuLateral from '../components/MenuLateral';
-import './EmpresaDetalhe.css';
-import { useAuth } from '../context/AuthContext';
-
-const dadosEmpresas = {
-  Academia: {
-    cor: '#4CAF50',
-    servicos: ['Musculação', 'Personal Trainer', 'Pilates']
-  },
-  Barbearia: {
-    cor: '#2196F3',
-    servicos: ['Corte', 'Barba', 'Sobrancelha']
-  },
-  'Lava Rápido': {
-    cor: '#FF9800',
-    servicos: ['Lavagem Simples', 'Lavagem Completa', 'Polimento']
-  },
-  'Pet Shop': {
-    cor: '#9C27B0',
-    servicos: ['Banho', 'Tosa', 'Consulta Veterinária']
-  },
-  Estética: {
-    cor: '#E91E63',
-    servicos: ['Limpeza de pele', 'Massagem', 'Depilação']
-  },
-  Clínica: {
-    cor: '#00BCD4',
-    servicos: ['Consulta Geral', 'Exame de Sangue', 'Check-up']
-  }
-};
+import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "./EmpresaDetalhe.css";
+import empresas from "../context/data/empresas";
 
 const horariosDisponiveis = [
-  '11:30', '12:00', '12:30', '13:00', '13:30',
-  '14:00', '14:30', '15:00', '15:30', '16:00'
+  "11:30", "12:00", "12:30", "13:00", "13:30",
+  "14:00", "14:30", "15:00", "15:30", "16:00"
 ];
-
-const normalizar = (str) =>
-  str
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\s+/g, '')
-    .toLowerCase();
 
 const EmpresaDetalhe = () => {
   const { id } = useParams();
-  const navigate = useNavigate(); 
-  const [menuAberto, setMenuAberto] = useState(false);
+  const navigate = useNavigate();
   const [dataSelecionada, setDataSelecionada] = useState(new Date());
-  const [horarioSelecionado, setHorarioSelecionado] = useState('');
-  const [servicoSelecionado, setServicoSelecionado] = useState('');
-  const { usuario } = useAuth();
+  const [horarioSelecionado, setHorarioSelecionado] = useState("");
+  const [servicoSelecionado, setServicoSelecionado] = useState("");
 
-  const listaEmpresas = [
-    'Academia',
-    'Barbearia',
-    'Lava Rápido',
-    'Pet Shop',
-    'Estética',
-    'Clínica'
-  ];
-
-  const nomeFormatado = listaEmpresas[parseInt(id)];
-  const empresa = nomeFormatado
-    ? dadosEmpresas[nomeFormatado]
-    : { cor: '#ccc', servicos: [] };
+  const empresa = empresas[id] || { nome: "Empresa Desconhecida", cor: "#ccc", servicos: [] };
 
   return (
     <div className="empresa-detalhe-container">
-      <Header setMenuAberto={() => setMenuAberto(!menuAberto)} usuario={usuario} />
-      <MenuLateral aberto={menuAberto} fechar={() => setMenuAberto(false)} />
-
       <div className="agendamento-box">
         {/* Informações da Empresa */}
         <div className="empresa-info">
@@ -81,7 +28,7 @@ const EmpresaDetalhe = () => {
             className="empresa-icon-grande"
             style={{ backgroundColor: empresa.cor }}
           />
-          <div className="empresa-nome">{nomeFormatado || 'Empresa Desconhecida'}</div>
+          <div className="empresa-nome">{empresa.nome}</div>
         </div>
 
         {/* Seção de Serviço */}
@@ -110,7 +57,7 @@ const EmpresaDetalhe = () => {
               {horariosDisponiveis.map((hora) => (
                 <button
                   key={hora}
-                  className={`horario-btn ${horarioSelecionado === hora ? 'ativo' : ''}`}
+                  className={`horario-btn ${horarioSelecionado === hora ? "ativo" : ""}`}
                   onClick={() => setHorarioSelecionado(hora)}
                 >
                   {hora}
@@ -134,20 +81,20 @@ const EmpresaDetalhe = () => {
           className="btn-agendar"
           onClick={() => {
             if (!servicoSelecionado || !horarioSelecionado || !dataSelecionada) {
-              alert('Por favor, selecione o serviço, a data e o horário.');
+              alert("Por favor, selecione o serviço, a data e o horário.");
               return;
             }
 
-            const dataFormatada = dataSelecionada.toLocaleDateString('pt-BR');
+            const dataFormatada = dataSelecionada.toLocaleDateString("pt-BR");
 
             alert(`✅ Agendamento confirmado:
 
-Empresa: ${nomeFormatado}
+Empresa: ${empresa.nome}
 Serviço: ${servicoSelecionado}
 Data: ${dataFormatada}
 Horário: ${horarioSelecionado}`);
 
-            navigate('/'); 
+            navigate("/"); 
           }}
         >
           Agendar
