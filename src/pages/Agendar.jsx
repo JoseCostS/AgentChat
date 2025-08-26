@@ -34,8 +34,6 @@ export default function Agendar() {
 
   return (
     <div className="ag-layout">
-
-      {/* CONTEÚDO */}
       <section className="ag-content">
         {/* CABEÇALHO */}
         <header className="ag-header">
@@ -49,38 +47,43 @@ export default function Agendar() {
               </div>
             </div>
           </div>
-
-          <div className="ag-head-actions">
-            <button className="ag-heart" type="button" aria-label="Favoritar">
-              <Heart size={18} />
-            </button>
-            <button
-              className="ag-cta"
-              type="button"
-              onClick={() => navigate(`/empresa/${empresa.id}`)}
-            >
-              Agendar agora
-            </button>
-          </div>
         </header>
 
-        {/* GRID PRINCIPAL: banner + painel */}
+        {/* GRID PRINCIPAL */}
         <div className="ag-main">
-          {/* Banner / mídia */}
-<div className="ag-banner">
-  <img src={empresa.banner} alt={`Banner de ${empresa.nome}`} />
-</div>
+          {/* Banner */}
+          <div className="ag-banner">
+            <img src={empresa.banner} alt={`Banner de ${empresa.nome}`} />
+          </div>
 
-
-
-
-          {/* Painel de informações */}
+          {/* Painel lateral */}
           <aside className="ag-panel">
+            
+            {/* 🔹 Nova div separada com botões */}
+            <div className="ag-hours-wrap">
+              <div className="ag-hours-actions">
+                <button className="ag-heart" type="button" aria-label="Favoritar">
+                  <Heart size={18} />
+                </button>
+                <button
+                  className="ag-cta"
+                  type="button"
+                  onClick={() => navigate(`/empresa/${empresa.id}`)}
+                >
+                  Agendar agora
+                </button>
+              </div>
+            </div>
+
             {/* Localização */}
             <div className="ag-panel-block">
               <div className="ag-block-title-row">
                 <h3>Localização</h3>
-                <button className="ag-round-icon" title="Próxima empresa" onClick={irProximaEmpresa}>
+                <button
+                  className="ag-round-icon"
+                  title="Próxima empresa"
+                  onClick={irProximaEmpresa}
+                >
                   <ArrowRight size={18} />
                 </button>
               </div>
@@ -89,11 +92,11 @@ export default function Agendar() {
               </p>
             </div>
 
-            {/* Horário de atendimento */}
+            {/* Horários */}
             <div className="ag-panel-block">
               <h3>Horário de atendimento</h3>
               <div className="ag-hours-list">
-                {DIAS_KEYS.map((k, idx) => {
+                {DIAS_KEYS.map((k) => {
                   const hora = empresa.horarios[k] ?? "Fechado";
                   const isHoje = k === diaHojeKey;
                   const fechado = String(hora).toLowerCase() === "fechado";
@@ -103,7 +106,9 @@ export default function Agendar() {
                         <span>{LABELS[k]}</span>
                         {isHoje && <span className="ag-badge">Hoje</span>}
                       </div>
-                      <div className={`ag-hour-right ${fechado ? "is-closed" : ""}`}>{hora}</div>
+                      <div className={`ag-hour-right ${fechado ? "is-closed" : ""}`}>
+                        {hora}
+                      </div>
                     </div>
                   );
                 })}

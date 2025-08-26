@@ -58,18 +58,14 @@
 .ag-side-rating{ display:flex; align-items:center; gap:4px; font-size:12px; color:rgb(100, 96, 75); }
 
 /* ---------- Content ---------- */
-.ag-content{ display:flex; flex-direction:column; gap:16px; }
+.ag-content{ display:flex; flex-direction:column; gap:20px; }
 
-/* Header */
-.ag-header{
-  display:flex; align-items:center; justify-content:space-between;
-}
-.ag-head-left{ display:flex; align-items:center; gap:12px; }
-.ag-logo{ width:44px; height:44px; border-radius:999px; border:2px solid rgba(0, 110, 255, 0.486); }
-.ag-title{ font-size:24px; margin:0 0 2px 0; }
-.ag-rating{ display:flex; align-items:center; gap:6px; color:gold; font-weight:700; }
+.ag-head-left{ display:flex; align-items:center; gap:20px; }
+.ag-logo{ width:50px; height:50px; border-radius:999px; border:2px solid rgba(0, 110, 255, 0.486); }
+.ag-title{ font-size:30px; margin:0 0 2px 0; }
+.ag-rating{ display:flex; align-items:center; gap:5px; color:gold; font-weight:700; }
 
-.ag-head-actions{ display:flex; align-items:center; gap:10px; }
+.ag-head-actions{ display:flex; align-items:center; gap:20px; }
 .ag-heart{
   width:40px; height:40px; border-radius:999px; border:none;
   background: rgba(255,255,255,.06); color:#ff6b6b; cursor:pointer;
@@ -90,7 +86,8 @@
 
 .ag-banner {
   width: 100%;
-  height: 360px;
+  width: 1000px;
+  height: 470px;
   border-radius: 16px;       /* Opcional */
   overflow: hidden;          /* Faz a imagem respeitar o border-radius */
 }
@@ -101,11 +98,6 @@
   object-fit: cover;         /* Faz a imagem preencher sem distorcer */
   display: block;
 }
-
-
-
-
-
 
 /* Painel direito */
 .ag-panel{
@@ -127,12 +119,26 @@
 
 .ag-address{ display:flex; gap:8px; color:var(--text); opacity:.95; }
 
-/* Horários */
+/* ---------- Horários ---------- */
+.ag-hours-wrap{
+  position: relative;
+}
+
+.ag-hours-actions{
+  position: absolute;
+  top: -46px;
+  right: 0;
+  display: flex;
+  gap: 12px;
+}
+
 .ag-hours-list{
   background: var(--panel2);
   border-radius:12px; padding:10px;
   border:1px solid rgba(255,255,255,.06);
+  margin-top: 24px; /* espaço para os botões */
 }
+
 .ag-hour-item{
   display:flex; align-items:center; justify-content:space-between;
   padding:8px 6px; font-size:14px; color:#cbd5e1;
@@ -147,13 +153,6 @@
 }
 .ag-hour-right{ font-weight:600; }
 .ag-hour-right.is-closed{ color: var(--red); }
-
-/* Pagamentos */
-.ag-chips{ display:flex; gap:8px; flex-wrap:wrap; }
-.ag-chip{
-  background: var(--chip); border:1px solid rgba(255,255,255,.06);
-  color:#e5e7eb; border-radius:999px; padding:6px 10px; font-size:12px; font-weight:700;
-}
 
 /* ---------- Responsivo ---------- */
 @media (max-width: 1100px){

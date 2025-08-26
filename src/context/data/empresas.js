@@ -2,7 +2,7 @@ const empresas = [
   {
     id: 1,
     nome: "Academia StrongFit",
-    avatar: "/images/academia.png",
+    avatar: "/images/academiaAvt.png",
     banner: "/images/academia.png",
     rating: 4.7,
     endereco: {
@@ -31,8 +31,8 @@ const empresas = [
   },
   {
     id: 2,
-    nome: "Barbearia Classic",
-    avatar: "/images/barbearia.png",
+    nome: "Barbearia Shop",
+    avatar: "/images/BarbeariaAvt2.png",
     banner: "/images/barbearia.png",
     rating: 4.5,
     endereco: {
@@ -61,9 +61,9 @@ const empresas = [
   },
   {
     id: 3,
-    nome: "Barbearia Hair Style",
-    avatar: "/images/barbeariahair.png",
-    banner: "/images/barbeariahair.png",
+    nome: "Barber's House",
+    avatar: "/images/barbeariaAvt.png",
+    banner: "/images/barbearia2.png",
     rating: 4.9,
     endereco: {
       logradouro: "Rua dos Estilos",
