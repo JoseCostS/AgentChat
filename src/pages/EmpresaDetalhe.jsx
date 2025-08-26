@@ -17,7 +17,9 @@ const EmpresaDetalhe = () => {
   const [horarioSelecionado, setHorarioSelecionado] = useState("");
   const [servicoSelecionado, setServicoSelecionado] = useState("");
 
-  const empresa = empresas[id] || { nome: "Empresa Desconhecida", cor: "#ccc", servicos: [] };
+ const empresa = empresas.find(e => e.id === Number(id)) 
+  || { nome: "Empresa Desconhecida", cor: "#ccc", servicos: [] };
+
 
   return (
     <div className="empresa-detalhe-container">

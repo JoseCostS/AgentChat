@@ -17,7 +17,9 @@
 .topbar__nav { display: flex; align-items: center; gap: 8px; }
 .topbar__link { color: #e5e7eb; text-decoration: none; font-weight: 600; padding: 6px 8px; border-radius: 6px; }
 .topbar__link.active { background: rgba(124,58,237,.15); }
-.topbar__sep { color: #9ca3af; }
+.topbar__sep { color: #000000; }
+
+
 
 .topbar__actions { display: flex; align-items: center; gap: 12px; }
 .icon-btn { background: transparent; border: 0; color: #fff; font-size: 20px; padding: 6px; border-radius: 8px; cursor: pointer; }

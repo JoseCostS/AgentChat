@@ -1,6 +1,6 @@
 .empresa-detalhe-container {
   padding-top: 70px; 
-  background: #f5f7fa;
+  background: linear-gradient(135deg, #050066 0%, #020025 50%, #000000 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;

@@ -9,7 +9,7 @@ export default function TopHeader() {
   return (
     <header className="topbar">
       <div className="topbar__brand">
-        <Link to="/" className="topbar__logo">LOGO</Link>
+        <Link to="/" className="topbar__logo">AgentChat</Link>
 
         <nav className="topbar__nav">
           <NavLink end to="/" className="topbar__link">
@@ -18,6 +18,9 @@ export default function TopHeader() {
           <span className="topbar__sep">-</span>
           <NavLink to="/meus-agendamentos" className="topbar__link">
             Meus Agendamentos
+          </NavLink>
+            <NavLink to="/meus-agendamentos" className="topbar__link">
+            Favoritos
           </NavLink>
         </nav>
       </div>
