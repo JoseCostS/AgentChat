@@ -10,8 +10,8 @@ const empresas = [
       numero: 120,
       bairro: "Centro",
       cep: "12345-678",
-      cidade: "Belo Horizonte",
-      estado: "MG",
+      cidade: "São paulo",
+      estado: "SP",
     },
     horarios: {
       domingo: "Fechado",
@@ -40,8 +40,8 @@ const empresas = [
       numero: 455,
       bairro: "Jardim América",
       cep: "23456-789",
-      cidade: "Belo Horizonte",
-      estado: "MG",
+      cidade: "São paulo",
+      estado: "SP",
     },
     horarios: {
       domingo: "Fechado",
@@ -70,8 +70,8 @@ const empresas = [
       numero: 89,
       bairro: "Boa Vista",
       cep: "34567-890",
-      cidade: "Belo Horizonte",
-      estado: "MG",
+      cidade: "São paulo",
+      estado: "SP",
     },
     horarios: {
       domingo: "Fechado",

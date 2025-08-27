@@ -1,3 +1,4 @@
+/* ====== BASE (seu código) ====== */
 .empresa-detalhe-container {
   padding-top: 70px; 
   background: linear-gradient(135deg, #050066 0%, #020025 50%, #000000 100%);
@@ -5,8 +6,6 @@
   display: flex;
   justify-content: center;
 }
-
-
 
 .agendamento-box {
   background-color: white;
@@ -20,71 +19,36 @@
   gap: 2rem;
 }
 
-.empresa-info {
-  text-align: center;
-  margin-bottom: 1rem;
-}
+.empresa-info { text-align: center; margin-bottom: 1rem; }
 
 .empresa-icon-grande {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin: 0 auto 1rem;
-  border: 3px solid #333;
+  width: 120px; height: 120px; border-radius: 50%;
+  margin: 0 auto 1rem; border: 3px solid #333;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   animation: pulse 1.5s ease-in-out infinite alternate;
 }
+@keyframes pulse { from { transform: scale(1); } to { transform: scale(1.03); } }
 
-@keyframes pulse {
-  from { transform: scale(1); }
-  to { transform: scale(1.03); }
-}
+.empresa-nome { font-size: 1.6rem; font-weight: 600; color: #333; }
 
-.empresa-nome {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #333;
-}
+.servico-section, .calendario-section { margin-bottom: 1.2rem; }
 
-.servico-section,
-.calendario-section {
-  margin-bottom: 1.2rem;
-}
-
-.servico-section h3,
-.horarios-section h3,
-.calendario-section h3 {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 0.6rem;
-  display: block; 
+.servico-section h3, .horarios-section h3, .calendario-section h3 {
+  font-size: 1rem; color: #555; margin-bottom: 0.6rem; display: block;
 }
 
 select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: #fdfdfd;
-  font-size: 1rem;
-  outline: none;
+  width: 100%; padding: 10px; border-radius: 8px;
+  border: 1px solid #ccc; background-color: #fdfdfd;
+  font-size: 1rem; outline: none;
 }
 
 .horarios-calendario-wrapper {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
+  display: flex; gap: 2rem; flex-wrap: wrap;
+  justify-content: center; align-items: flex-start;
 }
 
-
-.horarios-section {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+.horarios-section { flex: 1; display: flex; flex-direction: column; align-items: center; }
 
 .horarios-grid {
   display: grid;
@@ -96,88 +60,128 @@ select {
 }
 
 .horario-btn {
-  padding: 10px 14px;
-  background-color: #e0e0e0;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  padding: 10px 14px; background-color: #e0e0e0; border: none; border-radius: 8px;
+  font-size: 0.9rem; cursor: pointer; transition: background-color 0.3s, transform 0.2s;
 }
-
-.horario-btn:hover {
-  background-color: #d0d0d0;
-  transform: translateY(-2px);
-}
-
-.horario-btn.ativo {
-  background-color: #0077ff;
-  color: white;
-  font-weight: bold;
-}
+.horario-btn:hover { background-color: #d0d0d0; transform: translateY(-2px); }
+.horario-btn.ativo { background-color: #0077ff; color: white; font-weight: bold; }
 
 .calendario-section {
-  flex: 1;
-  min-width: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex: 1; min-width: 250px; display: flex; flex-direction: column; align-items: center;
 }
 
 .btn-agendar {
-  width: 100%;
-  background-color: #0077ff;
-  color: white;
-  font-size: 1rem;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%; background-color: #0077ff; color: white; font-size: 1rem;
+  padding: 12px; border: none; border-radius: 8px; cursor: pointer; margin-top: 1rem;
+  display: flex; justify-content: center; align-items: center;
   transition: background-color 0.3s, transform 0.2s;
 }
-
-.btn-agendar:hover {
-  background-color: #005fcc;
-  transform: scale(1.02);
-}
-
+.btn-agendar:hover { background-color: #005fcc; transform: scale(1.02); }
 
 @media (max-width: 768px) {
   .horarios-calendario-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2rem;
-    flex-wrap: nowrap;
-    width: 100%;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 2rem; flex-wrap: nowrap; width: 100%;
   }
+  .agendamento-box { padding: 1.5rem 1rem; }
+  .empresa-icon-grande { width: 90px; height: 90px; }
+  .empresa-nome { font-size: 1.3rem; }
+  .horarios-grid { grid-template-columns: repeat(2, 1fr); }
+  .calendario-section { flex: 1; max-width: 300px; display: flex; flex-direction: column; align-items: center; }
+}
 
-  .agendamento-box {
-    padding: 1.5rem 1rem;
-  }
+/* ====== MELHORIAS (novo) ====== */
 
-  .empresa-icon-grande {
-    width: 90px;
-    height: 90px;
-  }
+/* 1) Select mais caprichado */
+select.select-enhanced {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 20px rgba(2,6,23,.06);
+  transition: box-shadow .2s, border-color .2s;
+}
+select.select-enhanced:focus {
+  border-color: #0077ff;
+  box-shadow: 0 0 0 3px rgba(0,119,255,.15);
+}
 
-  .empresa-nome {
-    font-size: 1.3rem;
-  }
+/* 2) Grade de horários mais fluida */
+.horarios-grid {
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  max-width: 100%;
+}
+.horario-btn {
+  background:#f8fafc; border:1px solid #e5e7eb; color:#0f172a;
+}
+.horario-btn:hover { background:#eaf2ff; transform: translateY(-1px); }
+.horario-btn.ativo { background:#22c55e; color:#03110a; border-color:#16a34a; font-weight:800; }
+.horario-btn.is-disabled {
+  background:#f4f4f5; color:#a1a1aa; cursor:not-allowed; border-color:#e5e7eb; transform:none;
+}
+.horarios-empty { width:100%; text-align:center; color:#6b7280; padding:8px 0; }
 
-  .horarios-grid {
-    grid-template-columns: repeat(2, 1fr); 
-  }
+/* 3) Skin do react-datepicker para combinar com a página */
+.datepicker-wrap { width: 100%; }
+.react-datepicker {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 30px rgba(2,6,23,.08) !important;
+  overflow: hidden !important;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+.react-datepicker__header {
+  background: linear-gradient(135deg, #050066, #020025) !important;
+  border-bottom: 1px solid rgba(255,255,255,.15) !important;
+}
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  color: #fff !important;
+}
+.react-datepicker__day-name {
+  opacity: .9;
+}
 
-  .calendario-section {
-    flex: 1;
-    max-width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.react-datepicker__month { padding: 14px 18px 20px 18px !important; }
+.react-datepicker__day {
+  width: 2.4rem !important; line-height: 2.4rem !important;
+  border-radius: 10px !important; transition: background .15s, transform .1s;
+}
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background: #0077ff !important; color:#fff !important;
+}
+.react-datepicker__day--today {
+  outline: 2px solid #93c5fd; border-radius: 10px;
+}
+
+/* classes extras aplicadas via dayClassName */
+.react-datepicker__day.dp-day-open {
+  background: #eef2ff;
+}
+.react-datepicker__day.dp-day-open:hover {
+  background: #dbeafe;
+}
+.react-datepicker__day.dp-day-closed {
+  background: #f4f4f5; color:#a1a1aa; cursor: not-allowed;
+}
+
+/* header custom (renderCustomHeader) */
+.dp-header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 12px 14px; color:#fff; font-weight:700; text-transform: capitalize;
+}
+.dp-month { letter-spacing: .2px; }
+.dp-nav {
+  background: rgba(255,255,255,.12); color:#fff; border:none;
+  width:32px; height:32px; border-radius:10px; cursor:pointer;
+  transition: background .15s, transform .1s;
+}
+.dp-nav:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
+/* ...existing code... */
+.empresa-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  margin-right: 12px;
 }
