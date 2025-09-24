@@ -4,14 +4,15 @@ import "./Auth.css";
 
 function Cadastro() {
   const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const navigate = useNavigate();
 
   const handleCadastro = (e) => {
     e.preventDefault();
 
-    if (nome.trim() && senha.trim()) {
-      localStorage.setItem("usuarioCadastrado", JSON.stringify({ nome, senha }));
+    if (nome.trim() && email.trim() && senha.trim()) {
+      localStorage.setItem("usuarioCadastrado", JSON.stringify({ nome, email, senha }));
       alert("Cadastro realizado com sucesso!");
       navigate("/login");
     } else {
@@ -30,13 +31,21 @@ function Cadastro() {
           onChange={(e) => setNome(e.target.value)}
         />
         <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
           type="password"
           placeholder="Senha"
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
         />
         <button type="submit">Cadastrar</button>
-        <p onClick={() => navigate("/login")} className="link">Já tem conta? Login</p>
+        <p onClick={() => navigate("/login")} className="link">
+          Já tem conta? Login
+        </p>
       </form>
     </div>
   );

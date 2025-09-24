@@ -79,20 +79,39 @@ const EmpresaDetalhe = () => {
     });
   }, [dataSelecionada, empresa]);
 
-  const onConfirmar = () => {
-    if (!servicoSelecionado || !horarioSelecionado || !dataSelecionada) {
-      alert("Por favor, selecione o serviço, a data e o horário.");
-      return;
-    }
-    const dataFormatada = dataSelecionada.toLocaleDateString("pt-BR");
-    alert(`✅ Agendamento confirmado:
+const onConfirmar = () => {
+  if (!servicoSelecionado || !horarioSelecionado || !dataSelecionada) {
+    alert("Por favor, selecione o serviço, a data e o horário.");
+    return;
+  }
+const toggleFavorito = () => {
+  let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
-Empresa: ${empresa.nome}
-Serviço: ${servicoSelecionado}
-Data: ${dataFormatada}
-Horário: ${horarioSelecionado}`);
-    navigate("/");
+  if (favoritos.some(fav => fav.id === empresa.id)) {
+    favoritos = favoritos.filter(fav => fav.id !== empresa.id);
+  } else {
+    favoritos.push(empresa);
+  }
+
+  localStorage.setItem("favoritos", JSON.stringify(favoritos));
+};
+
+  const dataFormatada = dataSelecionada.toLocaleDateString("pt-BR");
+  const novoAgendamento = {
+    empresa: empresa.nome,
+    servico: servicoSelecionado,
+    data: dataFormatada,
+    horario: horarioSelecionado,
   };
+
+  // Salva no localStorage
+  const existentes = JSON.parse(localStorage.getItem("meusAgendamentos") || "[]");
+  existentes.push(novoAgendamento);
+  localStorage.setItem("meusAgendamentos", JSON.stringify(existentes));
+
+  navigate("/meus-agendamentos");
+};
+
 
   return (
     <div className="empresa-detalhe-container">
@@ -132,6 +151,7 @@ Horário: ${horarioSelecionado}`);
             )}
           </select>
         </div>
+        
 
         {/* Horários e Calendário */}
         <div className="horarios-calendario-wrapper">

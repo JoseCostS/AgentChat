@@ -19,9 +19,6 @@ export default function TopHeader() {
           <NavLink to="/meus-agendamentos" className="topbar__link">
             Meus Agendamentos
           </NavLink>
-            <NavLink to="/meus-agendamentos" className="topbar__link">
-            Favoritos
-          </NavLink>
         </nav>
       </div>
 

@@ -1,0 +1,84 @@
+.meusag-root {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 20px;
+  background: linear-gradient(135deg, #050066 0%, #020025 50%, #000000 100%);
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.meusag-inner {
+  background: #fff;
+  border-radius: 14px;
+  padding: 40px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+}
+
+.meusag-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.meusag-subtitle {
+  font-size: 16px;
+  color: #55575c;
+  margin-bottom: 28px;
+}
+
+.meusag-empty {
+  text-align: center;
+  color: #6b7280;
+}
+
+.meusag-empty p {
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.meusag-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.meusag-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  background: #f9fafb;
+  box-shadow: 0 4px 10px rgba(2, 6, 23, 0.04);
+}
+
+.meusag-info h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #111827;
+}
+
+.meusag-info p {
+  margin: 2px 0;
+  font-size: 14px;
+  color: #374151;
+}
+
+.meusag-delete {
+  border: none;
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.meusag-delete:hover {
+  background: #fecaca;
+  transform: scale(1.05);
+}
